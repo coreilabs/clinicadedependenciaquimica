@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /tools/
-Sitemap: https://clinicadedependenciaquimica.net.br/sitemap.xml
+Sitemap: https://clinicadependenciaquimica.net.br/sitemap.xml

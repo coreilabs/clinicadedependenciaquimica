@@ -25,7 +25,7 @@ const assert = require('assert/strict');
   assert.equal(await page.locator('#publicacoes, [href*="triagem"], [href*="contrato"]').count(), 0);
   assert.equal(await page.locator('h1').count(), 1);
   assert.equal(await page.locator('.unit-card').filter({hasText: 'Catalão'}).count(), 0);
-  assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'), 'https://clinicadedependenciaquimica.net.br/');
+  assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'), 'https://clinicadependenciaquimica.net.br/');
   assert.equal(await page.locator('#cityFilter option').count(), 9);
   await page.selectOption('#cityFilter', 'Goiânia');
   assert.equal(await page.locator('.unit-card').count(), 2);

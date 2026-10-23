@@ -1,6 +1,6 @@
 # Site estático — Grupo Araújo Tratamentos
 
-Domínio: https://clinicadedependenciaquimica.net.br
+Domínio: https://clinicadependenciaquimica.net.br
 
 O projeto contém somente duas páginas públicas: `index.html` e `politica-de-privacidade.html`. São nove unidades de Goiás com fotos: seis masculinas e três femininas. Todas as imagens e bibliotecas são locais. Não há WordPress, PHP, banco de dados, blog, posts, triagem ou painel administrativo.
 

@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCE = Path(r'C:\laragon\www\grupoaraujotratamentos')
 THEME = SOURCE / 'wordpress-theme/grupo-araujo'
 ORIGIN = 'https://grupoaraujotratamentos.com.br'
-DOMAIN = 'https://clinicadedependenciaquimica.net.br'
+DOMAIN = 'https://clinicadependenciaquimica.net.br'
 ASSETS = ROOT / 'assets'
 ASSETS.mkdir(exist_ok=True)
 
@@ -50,7 +50,7 @@ for a in body.select('a[href]'):
             a['href'] = '#contato'
 for node in body.find_all(string=True):
     if 'grupoaraujotratamentos.com.br' in node:
-        node.replace_with(str(node).replace('www.grupoaraujotratamentos.com.br', 'clinicadedependenciaquimica.net.br').replace('grupoaraujotratamentos.com.br', 'clinicadedependenciaquimica.net.br'))
+        node.replace_with(str(node).replace('www.grupoaraujotratamentos.com.br', 'clinicadependenciaquimica.net.br').replace('grupoaraujotratamentos.com.br', 'clinicadependenciaquimica.net.br'))
 
 # Copiamos somente recursos públicos utilizados pelo site, sem PHP/administração.
 for name in ('vendor', 'img'):
@@ -147,7 +147,7 @@ policy_article = policy_source.select_one('.policy-card')
 cookie_section = policy_article.select('.policy-section')[6]
 cookie_section.clear()
 cookie_section.append(fragment('<h2>7. Cookies e serviços externos</h2><p>Este site estático não utiliza cookies próprios, ferramentas de análise ou rastreamento. Imagens, estilos e scripts são servidos localmente.</p><p>O formulário de contato prepara uma mensagem e abre o WhatsApp. Os dados preenchidos não são enviados a um banco de dados deste site. Ao acessar o WhatsApp, aplicam-se as políticas de privacidade desse serviço. A hospedagem pode registrar dados técnicos de acesso em seus logs.</p>'))
-policy_html = str(policy_article).replace('https://www.grupoaraujotratamentos.com.br', DOMAIN).replace('www.grupoaraujotratamentos.com.br', 'clinicadedependenciaquimica.net.br')
+policy_html = str(policy_article).replace('https://www.grupoaraujotratamentos.com.br', DOMAIN).replace('www.grupoaraujotratamentos.com.br', 'clinicadependenciaquimica.net.br')
 policy_body = fragment(str(body))
 policy_body.select_one('main').replace_with(fragment('<main class="section section-white"><div class="container"><p class="eyebrow">Proteção de dados</p><h1>Política de Privacidade, Termos de Uso e Cookies</h1>' + policy_html + '</div></main>'))
 for a in policy_body.select('a[href^="#"]'):
