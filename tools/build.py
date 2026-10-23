@@ -155,8 +155,8 @@ for a in policy_body.select('a[href^="#"]'):
 
 vendors = ['swiper/11.2.10/swiper-bundle.min', 'glightbox/3.3.1/glightbox.min', 'aos/2.3.4/aos']
 def document(content, privacy=False):
-    title = 'Política de Privacidade | Grupo Araújo Tratamentos' if privacy else 'Clínica de Dependência Química em Goiás | Grupo Araújo Tratamentos'
-    description = 'Conheça nossa política de privacidade, termos de uso e funcionamento do contato pelo WhatsApp.' if privacy else 'Acolhimento e orientação para dependência química em Goiás. Conheça nove unidades parceiras e fale com o Grupo Araújo Tratamentos. Atendimento 24 horas.'
+    title = 'Política de Privacidade | Grupo Araújo Tratamentos' if privacy else 'Dependência Química e Alcoolismo em Goiás | Acolhimento'
+    description = 'Conheça nossa política de privacidade, termos de uso e funcionamento do contato pelo WhatsApp.' if privacy else 'Acolhimento e orientação para dependência química e alcoolismo em Goiás. Conheça as unidades parceiras e fale com nossa equipe. Atendimento 24 horas.'
     canonical = DOMAIN + ('/politica-de-privacidade.html' if privacy else '/')
     styles = ''.join(f'<link rel="stylesheet" href="assets/vendor/{v}.css">' for v in vendors)
     scripts = ''.join(f'<script src="assets/vendor/{v}.js" defer></script>' for v in vendors)
