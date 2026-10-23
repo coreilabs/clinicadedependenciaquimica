@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "checks": [
+    "9 clínicas GO",
+    "filtros cidade, modalidade e busca sem acentos",
+    "estado vazio e limpar",
+    "galeria",
+    "FAQ",
+    "formulário WhatsApp interceptado sem envio",
+    "menu mobile",
+    "sem overflow desktop/mobile",
+    "política",
+    "metadados",
+    "sem rede externa",
+    "sem recursos ausentes",
+    "sem erros JavaScript"
+  ],
+  "errors": [],
+  "external": [],
+  "failed": []
+}
