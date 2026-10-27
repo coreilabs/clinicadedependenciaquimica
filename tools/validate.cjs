@@ -13,7 +13,7 @@ const assert = require('assert/strict');
   page.on('response', r => { if(r.status() >= 400) failed.push(`${r.status()} ${r.url()}`); });
   await page.route('**/*', route => {
     const url = route.request().url();
-    if (url === 'https://www.googletagmanager.com/gtag/js?id=AW-18538970240') return route.fulfill({contentType:'application/javascript', body:''});
+    if (url === 'https://www.googletagmanager.com/gtag/js?id=AW-18540442624') return route.fulfill({contentType:'application/javascript', body:''});
     if (!url.startsWith('http://127.0.0.1:8765/') && !url.startsWith('data:')) {
       external.push(url); return route.abort();
     }

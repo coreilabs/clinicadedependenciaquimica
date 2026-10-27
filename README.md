@@ -51,6 +51,6 @@ O HTML gerado recebeu metadados novos. O conteúdo estranho encontrado nos metad
 
 ## Google Ads e links das unidades
 
-Google Ads: `AW-18538970240` em `index.html` e `politica-de-privacidade.html`.
+Google Ads: `AW-18540442624` em `index.html` e `politica-de-privacidade.html`.
 Links de detalhes: nove unidades com `/clinicas/r/18CF6175C7/clinica/<id>`.
 O Google passa a ser uma dependencia externa intencional.
