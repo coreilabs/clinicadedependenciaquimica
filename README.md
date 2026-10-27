@@ -48,3 +48,9 @@ O gerador depende de Beautiful Soup em `tools/lib` (já incluído no ambiente lo
 `tools/validate.cjs` utiliza Playwright e o Chrome instalado, com servidor local na porta 8765. Verifica filtros, nove cartões, galerias, FAQ, formulário sem envio, menu mobile, imagens, metadados, ausência de dependências externas e erros de JavaScript. Evidências e capturas ficam em `tools/validation/`.
 
 O HTML gerado recebeu metadados novos. O conteúdo estranho encontrado nos metadados da página inicial do domínio original não foi importado. Esta conversão não altera nem corrige o WordPress publicado.
+
+## Google Ads e links das unidades
+
+Google Ads: `AW-18538970240` em `index.html` e `politica-de-privacidade.html`.
+Links de detalhes: nove unidades com `/clinicas/r/18CF6175C7/clinica/<id>`.
+O Google passa a ser uma dependencia externa intencional.

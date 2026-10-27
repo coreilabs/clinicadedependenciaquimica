@@ -1,11 +1,11 @@
-const { chromium } = require('playwright');
+const { launchChrome } = require('C:/Users/user/.codex/tools/browser/chrome.cjs');
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert/strict');
 (async () => {
   const out = path.join(__dirname, 'validation');
   fs.mkdirSync(out, {recursive:true});
-  const browser = await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+  const browser = await launchChrome();
   const page = await browser.newPage({viewport:{width:1440,height:1000}, reducedMotion:'reduce'});
   const errors = [], external = [], failed = [];
   page.on('pageerror', e => errors.push(e.message));
@@ -13,6 +13,7 @@ const assert = require('assert/strict');
   page.on('response', r => { if(r.status() >= 400) failed.push(`${r.status()} ${r.url()}`); });
   await page.route('**/*', route => {
     const url = route.request().url();
+    if (url === 'https://www.googletagmanager.com/gtag/js?id=AW-18538970240') return route.fulfill({contentType:'application/javascript', body:''});
     if (!url.startsWith('http://127.0.0.1:8765/') && !url.startsWith('data:')) {
       external.push(url); return route.abort();
     }
@@ -86,12 +87,12 @@ const assert = require('assert/strict');
   await page.goto('http://127.0.0.1:8765/politica-de-privacidade.html', {waitUntil:'networkidle'});
   assert.equal(await page.locator('h1').count(),1);
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
-  assert.match(await page.locator('main').textContent(), /não utiliza cookies próprios/);
+  assert.match(await page.locator('main').textContent(), /Google Ads/);
   await page.screenshot({path:path.join(out,'privacy-mobile.png'),fullPage:true});
   assert.deepEqual(errors, []);
   assert.deepEqual(external, []);
   assert.deepEqual(failed, []);
-  const result = {status:'PASS',checks:['9 clínicas GO','filtros cidade, modalidade e busca sem acentos','estado vazio e limpar','galeria','FAQ','formulário WhatsApp interceptado sem envio','menu mobile','sem overflow desktop/mobile','política','metadados','sem rede externa','sem recursos ausentes','sem erros JavaScript'], errors, external, failed};
+  const result = {status:'PASS',checks:['9 clínicas GO','filtros cidade, modalidade e busca sem acentos','estado vazio e limpar','galeria','FAQ','formulário WhatsApp interceptado sem envio','menu mobile','sem overflow desktop/mobile','política','metadados','Google Ads isolado durante os testes','sem recursos ausentes','sem erros JavaScript'], errors, external, failed};
   fs.writeFileSync(path.join(out,'report.json'), JSON.stringify(result,null,2));
   console.log(JSON.stringify(result,null,2));
   await browser.close();
